@@ -7,31 +7,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Arrendador {
+public class Tipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private Integer telefono;
-    private String contraseña;
-    private Timestamp createdAt;
-
+    private String img;
+    private String tipo;
 
     //Relaciones.
-    @OneToMany(mappedBy = "arrendador")
+    @OneToMany(mappedBy = "tipo")
     @JsonIgnore
     private List<Propiedad> propiedades = new ArrayList<Propiedad>();
-
 }
