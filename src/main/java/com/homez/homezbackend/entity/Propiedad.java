@@ -65,6 +65,10 @@ public class Propiedad {
     @JsonIgnore
     private List<Foto> fotos = new ArrayList<Foto>();
 
+    @OneToMany(mappedBy = "propiedad")
+    @JsonIgnore
+    private List<Solicitud> solicitudes = new ArrayList<Solicitud>();
+
 
 
 }
