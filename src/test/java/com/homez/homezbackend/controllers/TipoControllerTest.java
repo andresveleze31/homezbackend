@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.homez.homezbackend.dto.TipoDTO;
 
 @SpringBootTest
-public class TipoControllerTest {
+class TipoControllerTest {
     @Autowired
     TipoController tipoController;
 

@@ -1,15 +1,22 @@
 package com.homez.homezbackend.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.homez.homezbackend.entity.*;
-import jakarta.persistence.*;
+import java.sql.Timestamp;
+
+import com.homez.homezbackend.entity.Arrendatario;
+import com.homez.homezbackend.entity.CalificacionArrendatario;
+import com.homez.homezbackend.entity.CalificacionPropiedad;
+import com.homez.homezbackend.entity.Estado;
+import com.homez.homezbackend.entity.Pago;
+import com.homez.homezbackend.entity.Propiedad;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.sql.Timestamp;
 
 @Getter
 @Setter

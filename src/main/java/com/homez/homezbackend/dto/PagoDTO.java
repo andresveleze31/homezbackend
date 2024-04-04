@@ -1,10 +1,11 @@
 package com.homez.homezbackend.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.homez.homezbackend.entity.Banco;
-import com.homez.homezbackend.entity.Pago;
-import jakarta.persistence.*;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

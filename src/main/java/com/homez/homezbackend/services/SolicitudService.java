@@ -1,18 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.PropiedadDTO;
-import com.homez.homezbackend.dto.SolicitudDTO;
-import com.homez.homezbackend.entity.Propiedad;
-import com.homez.homezbackend.entity.Solicitud;
-import com.homez.homezbackend.repository.PropiedadRepository;
-import com.homez.homezbackend.repository.SolicitudRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.SolicitudDTO;
+import com.homez.homezbackend.entity.Solicitud;
+import com.homez.homezbackend.repository.SolicitudRepository;
 
 @Service
 public class SolicitudService {

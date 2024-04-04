@@ -7,11 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.homez.homezbackend.dto.TipoDTO;
 import com.homez.homezbackend.dto.TipoIngresoDTO;
 
 @SpringBootTest
-public class TipoIngresoControllerTest {
+class TipoIngresoControllerTest {
     @Autowired
     TipoIngresoController tipoIngresoController;
 

@@ -10,10 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.homez.homezbackend.dto.ArrendadorDTO;
-import com.homez.homezbackend.dto.TipoIngresoDTO;
 
 @SpringBootTest
-public class ArrendadorControllerTest {
+class ArrendadorControllerTest {
     @Autowired
     ArrendadorController arrendadorController;
 

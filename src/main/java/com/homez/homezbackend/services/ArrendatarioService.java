@@ -1,18 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.ArrendadorDTO;
-import com.homez.homezbackend.dto.ArrendatarioDTO;
-import com.homez.homezbackend.entity.Arrendador;
-import com.homez.homezbackend.entity.Arrendatario;
-import com.homez.homezbackend.repository.ArrendadorRepository;
-import com.homez.homezbackend.repository.ArrendatarioRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.ArrendatarioDTO;
+import com.homez.homezbackend.entity.Arrendatario;
+import com.homez.homezbackend.repository.ArrendatarioRepository;
 
 @Service
 public class ArrendatarioService {

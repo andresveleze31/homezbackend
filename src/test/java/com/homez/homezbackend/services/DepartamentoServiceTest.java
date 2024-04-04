@@ -1,7 +1,6 @@
 package com.homez.homezbackend.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -16,17 +15,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.homez.homezbackend.controllers.DepartamentoController;
 import com.homez.homezbackend.dto.DepartamentoDTO;
 import com.homez.homezbackend.entity.Departamento;
 import com.homez.homezbackend.repository.DepartamentoRepository;
-import com.homez.homezbackend.services.DepartamentoService;
 
-@SpringBootTest
-public class DepartamentoServiceTest {
+
+class DepartamentoServiceTest {
 
     @InjectMocks
     private DepartamentoService departamentoService;

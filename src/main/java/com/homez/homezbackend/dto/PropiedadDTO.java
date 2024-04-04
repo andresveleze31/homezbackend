@@ -1,8 +1,14 @@
 package com.homez.homezbackend.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.homez.homezbackend.entity.*;
-import jakarta.persistence.*;
+import com.homez.homezbackend.entity.Arrendador;
+import com.homez.homezbackend.entity.Departamento;
+import com.homez.homezbackend.entity.Municipio;
+import com.homez.homezbackend.entity.Tipo;
+import com.homez.homezbackend.entity.TipoIngreso;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

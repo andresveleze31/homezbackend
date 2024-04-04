@@ -1,18 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.TipoDTO;
-import com.homez.homezbackend.dto.TipoIngresoDTO;
-import com.homez.homezbackend.entity.Tipo;
-import com.homez.homezbackend.entity.TipoIngreso;
-import com.homez.homezbackend.repository.TipoIngresoRepository;
-import com.homez.homezbackend.repository.TipoRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.TipoDTO;
+import com.homez.homezbackend.entity.Tipo;
+import com.homez.homezbackend.repository.TipoRepository;
 
 @Service
 public class TipoService {

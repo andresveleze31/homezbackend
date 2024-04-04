@@ -7,11 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.homez.homezbackend.controllers.EstadoController;
 import com.homez.homezbackend.dto.EstadoDTO;
 
 @SpringBootTest
-public class EstadoControllerTest {
+class EstadoControllerTest {
 
     @Autowired
     EstadoController estadoController;

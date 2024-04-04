@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.homez.homezbackend.dto.BancoDTO;
-import com.homez.homezbackend.dto.MunicipioDTO;
 
 @SpringBootTest
-public class BancoControllerTest {
+class BancoControllerTest {
     @Autowired
     BancoController bancoController;
 

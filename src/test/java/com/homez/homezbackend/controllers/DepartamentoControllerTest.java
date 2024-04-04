@@ -1,39 +1,17 @@
 
 package com.homez.homezbackend.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.homez.homezbackend.controllers.DepartamentoController;
-import com.homez.homezbackend.dto.DepartamentoDTO;
-import com.homez.homezbackend.services.DepartamentoService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import org.springframework.http.MediaType;
-
-import java.util.List;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.homez.homezbackend.dto.DepartamentoDTO;
 
 @SpringBootTest
-public class DepartamentoControllerTest {
+class DepartamentoControllerTest {
     @Autowired
     DepartamentoController departamentoController;
 
@@ -46,7 +24,7 @@ public class DepartamentoControllerTest {
         System.out.println("-----------------------");
 
         int cantidad = departamentoController.get().size();
-        DepartamentoDTO departamentoDTO = new DepartamentoDTO(null,"img123.jpg" , "Departamento");
+        DepartamentoDTO departamentoDTO = new DepartamentoDTO(null, "img123.jpg", "Departamento");
         departamentoDTO = departamentoController.create(departamentoDTO);
         int nuevaCantidad = departamentoController.get().size();
         assertEquals(cantidad + 1, nuevaCantidad);
@@ -101,4 +79,5 @@ public class DepartamentoControllerTest {
         // Verificamos que la cantidad de departamentos se haya reducido en 1
         assertEquals(cantidadAntes - 1, cantidadDespues);
     }
+
 }

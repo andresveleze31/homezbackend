@@ -1,19 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.BancoDTO;
-import com.homez.homezbackend.dto.DepartamentoDTO;
-import com.homez.homezbackend.dto.EstadoDTO;
-import com.homez.homezbackend.entity.Banco;
-import com.homez.homezbackend.entity.Estado;
-import com.homez.homezbackend.repository.BancoRepository;
-import com.homez.homezbackend.repository.EstadoRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.EstadoDTO;
+import com.homez.homezbackend.entity.Estado;
+import com.homez.homezbackend.repository.EstadoRepository;
 
 @Service
 public class EstadoService {

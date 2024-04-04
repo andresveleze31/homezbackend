@@ -1,19 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.ArrendatarioDTO;
-import com.homez.homezbackend.dto.BancoDTO;
-import com.homez.homezbackend.dto.CalificacionArrendatarioDTO;
-import com.homez.homezbackend.entity.Banco;
-import com.homez.homezbackend.entity.CalificacionArrendatario;
-import com.homez.homezbackend.repository.BancoRepository;
-import com.homez.homezbackend.repository.CalificacionArrendatarioRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.CalificacionArrendatarioDTO;
+import com.homez.homezbackend.entity.CalificacionArrendatario;
+import com.homez.homezbackend.repository.CalificacionArrendatarioRepository;
 
 @Service
 public class CalificacionArrendatarioService {

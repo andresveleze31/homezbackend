@@ -1,19 +1,16 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.EstadoDTO;
-import com.homez.homezbackend.dto.FotoDTO;
-import com.homez.homezbackend.dto.MunicipioDTO;
-import com.homez.homezbackend.entity.Foto;
-import com.homez.homezbackend.entity.Municipio;
-import com.homez.homezbackend.repository.FotoRepository;
-import com.homez.homezbackend.repository.MunicipioRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.homez.homezbackend.dto.FotoDTO;
+import com.homez.homezbackend.entity.Foto;
+import com.homez.homezbackend.repository.FotoRepository;
 
 @Service
 public class FotoService {

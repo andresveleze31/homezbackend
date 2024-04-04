@@ -1,6 +1,7 @@
 package com.homez.homezbackend.dto;
 
 import com.homez.homezbackend.entity.Propiedad;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
