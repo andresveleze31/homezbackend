@@ -51,6 +51,20 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.4.4</version> <!-- Versión actualizada -->
 		</dependency>
+		<dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Dependencia para Mockito -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>3.11.2</version>
+        <scope>test</scope>
+    </dependency>
 
 	</dependencies>
 
@@ -74,12 +88,6 @@
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.7.0.1746</version>
 
-				<configuration>
-                    <sonar.host.url>http://sonarqube.dynaco.co</sonar.host.url>
-                    <sonar.projectKey>Homez</sonar.projectKey>
-                    <sonar.projectName>Homez</sonar.projectName>
-                    <sonar.login>sqp_cf8b5e2ca66654fc86da49f9eb9b08a234f9caab</sonar.login> <!-- O utiliza sonar.token si prefieres -->
-                </configuration>
 			</plugin>
 
 		</plugins>

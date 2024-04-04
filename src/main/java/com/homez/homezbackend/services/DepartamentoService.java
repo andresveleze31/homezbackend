@@ -1,11 +1,7 @@
 package com.homez.homezbackend.services;
 
-import com.homez.homezbackend.dto.ArrendatarioDTO;
-import com.homez.homezbackend.dto.CalificacionPropiedadDTO;
 import com.homez.homezbackend.dto.DepartamentoDTO;
-import com.homez.homezbackend.entity.Arrendatario;
 import com.homez.homezbackend.entity.Departamento;
-import com.homez.homezbackend.repository.ArrendatarioRepository;
 import com.homez.homezbackend.repository.DepartamentoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
