@@ -1,6 +1,7 @@
 package com.homez.homezbackend.services;
 
 import com.homez.homezbackend.dto.ArrendadorDTO;
+import com.homez.homezbackend.dto.BancoDTO;
 import com.homez.homezbackend.entity.Arrendador;
 import com.homez.homezbackend.repository.ArrendadorRepository;
 import org.modelmapper.ModelMapper;
@@ -48,14 +49,14 @@ public class ArrendadorService {
         Arrendador arrendador = modelMapper.map(arrendadorDTO, Arrendador.class);
         arrendador = arrendadorRepository.save(arrendador);
 
-        return arrendadorDTO;
+        return modelMapper.map(arrendador, ArrendadorDTO.class);
     }
 
     public ArrendadorDTO updateArrendador(ArrendadorDTO arrendadorDTO){
         Arrendador arrendador = modelMapper.map(arrendadorDTO, Arrendador.class);
         arrendador = arrendadorRepository.save(arrendador);
 
-        return arrendadorDTO;
+        return modelMapper.map(arrendador, ArrendadorDTO.class);
     }
 
     public void deleteArrendador(Integer id){

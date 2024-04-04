@@ -1,5 +1,6 @@
 package com.homez.homezbackend.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.homez.homezbackend.entity.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -52,14 +52,14 @@ public class TipoService {
         Tipo tipo = modelMapper.map(tipoDTO, Tipo.class);
         tipo = tipoRepository.save(tipo);
 
-        return tipoDTO;
+        return modelMapper.map(tipo, TipoDTO.class);
     }
 
     public TipoDTO updateTipo(TipoDTO tipoDTO){
         Tipo tipo = modelMapper.map(tipoDTO, Tipo.class);
         tipo = tipoRepository.save(tipo);
 
-        return tipoDTO;
+        return modelMapper.map(tipo, TipoDTO.class);
     }
 
     public void deleteTipo(Integer id){

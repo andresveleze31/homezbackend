@@ -1,6 +1,7 @@
 package com.homez.homezbackend.services;
 
 import com.homez.homezbackend.dto.ArrendatarioDTO;
+import com.homez.homezbackend.dto.CalificacionPropiedadDTO;
 import com.homez.homezbackend.dto.DepartamentoDTO;
 import com.homez.homezbackend.entity.Arrendatario;
 import com.homez.homezbackend.entity.Departamento;
@@ -52,14 +53,14 @@ public class DepartamentoService {
         Departamento departamento = modelMapper.map(departamentoDTO, Departamento.class);
         departamento = departamentoRepository.save(departamento);
 
-        return departamentoDTO;
+        return modelMapper.map(departamento, DepartamentoDTO.class);
     }
 
     public DepartamentoDTO updateDepartamento(DepartamentoDTO departamentoDTO){
         Departamento departamento = modelMapper.map(departamentoDTO, Departamento.class);
         departamento = departamentoRepository.save(departamento);
 
-        return departamentoDTO;
+        return modelMapper.map(departamento, DepartamentoDTO.class);
     }
 
     public void deleteDepartamento(Integer id){

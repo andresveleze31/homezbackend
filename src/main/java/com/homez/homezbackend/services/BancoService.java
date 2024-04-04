@@ -52,14 +52,15 @@ public class BancoService {
         Banco banco = modelMapper.map(bancoDTO, Banco.class);
         banco = bancoRepository.save(banco);
 
-        return bancoDTO;
+        return modelMapper.map(banco, BancoDTO.class);
     }
 
     public BancoDTO updateBanco(BancoDTO bancoDTO){
         Banco banco = modelMapper.map(bancoDTO, Banco.class);
         banco = bancoRepository.save(banco);
 
-        return bancoDTO;
+
+        return modelMapper.map(banco, BancoDTO.class);
     }
 
     public void deleteBanco(Integer id){

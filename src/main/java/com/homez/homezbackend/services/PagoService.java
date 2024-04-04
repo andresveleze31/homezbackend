@@ -2,6 +2,7 @@ package com.homez.homezbackend.services;
 
 
 import com.homez.homezbackend.dto.BancoDTO;
+import com.homez.homezbackend.dto.MunicipioDTO;
 import com.homez.homezbackend.dto.PagoDTO;
 import com.homez.homezbackend.entity.Banco;
 import com.homez.homezbackend.entity.Pago;
@@ -53,14 +54,15 @@ public class PagoService {
         Pago pago = modelMapper.map(pagoDTO, Pago.class);
         pago = pagoRepository.save(pago);
 
-        return pagoDTO;
+        return modelMapper.map(pago, PagoDTO.class);
+
     }
 
     public PagoDTO updatePago(PagoDTO pagoDTO){
         Pago pago = modelMapper.map(pagoDTO, Pago.class);
         pago = pagoRepository.save(pago);
 
-        return pagoDTO;
+        return modelMapper.map(pago, PagoDTO.class);
     }
 
     public void deletePago(Integer id){

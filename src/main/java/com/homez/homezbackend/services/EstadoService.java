@@ -1,6 +1,7 @@
 package com.homez.homezbackend.services;
 
 import com.homez.homezbackend.dto.BancoDTO;
+import com.homez.homezbackend.dto.DepartamentoDTO;
 import com.homez.homezbackend.dto.EstadoDTO;
 import com.homez.homezbackend.entity.Banco;
 import com.homez.homezbackend.entity.Estado;
@@ -52,14 +53,14 @@ public class EstadoService {
         Estado estado = modelMapper.map(estadoDTO, Estado.class);
         estado = estadoRepository.save(estado);
 
-        return estadoDTO;
+        return modelMapper.map(estado, EstadoDTO.class);
     }
 
     public EstadoDTO updateEstado(EstadoDTO estadoDTO){
         Estado estado = modelMapper.map(estadoDTO, Estado.class);
         estado = estadoRepository.save(estado);
 
-        return estadoDTO;
+        return modelMapper.map(estado, EstadoDTO.class);
     }
 
     public void deleteEstado(Integer id){

@@ -52,14 +52,14 @@ public class SolicitudService {
         Solicitud solicitud = modelMapper.map(solicitudDTO, Solicitud.class);
         solicitud = solicitudRepository.save(solicitud);
 
-        return solicitudDTO;
+        return modelMapper.map(solicitud, SolicitudDTO.class);
     }
 
     public SolicitudDTO updateSolicitud(SolicitudDTO solicitudDTO){
         Solicitud solicitud = modelMapper.map(solicitudDTO, Solicitud.class);
         solicitud = solicitudRepository.save(solicitud);
 
-        return solicitudDTO;
+        return modelMapper.map(solicitud, SolicitudDTO.class);
     }
 
     public void deleteSolicitud(Integer id){

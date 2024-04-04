@@ -1,5 +1,6 @@
 package com.homez.homezbackend.services;
 
+import com.homez.homezbackend.dto.PagoDTO;
 import com.homez.homezbackend.dto.PropiedadDTO;
 import com.homez.homezbackend.dto.TipoIngresoDTO;
 import com.homez.homezbackend.entity.Propiedad;
@@ -52,14 +53,14 @@ public class PropiedadService {
         Propiedad propiedad = modelMapper.map(propiedadDTO, Propiedad.class);
         propiedad = propiedadRepository.save(propiedad);
 
-        return propiedadDTO;
+        return modelMapper.map(propiedad, PropiedadDTO.class);
     }
 
     public PropiedadDTO updatePropiedad(PropiedadDTO propiedadDTO){
         Propiedad propiedad = modelMapper.map(propiedadDTO, Propiedad.class);
         propiedad = propiedadRepository.save(propiedad);
 
-        return propiedadDTO;
+        return modelMapper.map(propiedad, PropiedadDTO.class);
     }
 
     public void deletePropiedad(Integer id){

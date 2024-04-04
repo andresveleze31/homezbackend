@@ -52,14 +52,16 @@ public class ArrendatarioService {
         Arrendatario arrendatario = modelMapper.map(arrendatarioDTO, Arrendatario.class);
         arrendatario = arrendatarioRepository.save(arrendatario);
 
-        return arrendatarioDTO;
+
+        return modelMapper.map(arrendatario, ArrendatarioDTO.class);
+
     }
 
     public ArrendatarioDTO updateArrendatario(ArrendatarioDTO arrendatarioDTO){
         Arrendatario arrendatario = modelMapper.map(arrendatarioDTO, Arrendatario.class);
         arrendatario = arrendatarioRepository.save(arrendatario);
 
-        return arrendatarioDTO;
+        return modelMapper.map(arrendatario, ArrendatarioDTO.class);
     }
 
     public void deleteArrendatario(Integer id){

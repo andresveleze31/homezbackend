@@ -1,5 +1,6 @@
 package com.homez.homezbackend.services;
 
+import com.homez.homezbackend.dto.ArrendatarioDTO;
 import com.homez.homezbackend.dto.BancoDTO;
 import com.homez.homezbackend.dto.CalificacionArrendatarioDTO;
 import com.homez.homezbackend.entity.Banco;
@@ -52,14 +53,15 @@ public class CalificacionArrendatarioService {
         CalificacionArrendatario calificacionArrendatario = modelMapper.map(calificacionArrendatarioDTO, CalificacionArrendatario.class);
         calificacionArrendatario = calificacionArrendatarioRepository.save(calificacionArrendatario);
 
-        return calificacionArrendatarioDTO;
+        return modelMapper.map(calificacionArrendatario, CalificacionArrendatarioDTO.class);
+
     }
 
     public CalificacionArrendatarioDTO updateCalArrendatario(CalificacionArrendatarioDTO calificacionArrendatarioDTO){
         CalificacionArrendatario calificacionArrendatario = modelMapper.map(calificacionArrendatarioDTO, CalificacionArrendatario.class);
         calificacionArrendatario = calificacionArrendatarioRepository.save(calificacionArrendatario);
 
-        return calificacionArrendatarioDTO;
+        return modelMapper.map(calificacionArrendatario, CalificacionArrendatarioDTO.class);
     }
 
     public void deleteCalArrendatario(Integer id){

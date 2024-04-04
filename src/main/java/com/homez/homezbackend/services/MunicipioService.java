@@ -1,6 +1,7 @@
 package com.homez.homezbackend.services;
 
 import com.homez.homezbackend.dto.DepartamentoDTO;
+import com.homez.homezbackend.dto.FotoDTO;
 import com.homez.homezbackend.dto.MunicipioDTO;
 import com.homez.homezbackend.entity.Departamento;
 import com.homez.homezbackend.entity.Municipio;
@@ -52,14 +53,14 @@ public class MunicipioService {
         Municipio municipio = modelMapper.map(municipioDTO, Municipio.class);
         municipio = municipioRepository.save(municipio);
 
-        return municipioDTO;
+        return modelMapper.map(municipio, MunicipioDTO.class);
     }
 
     public MunicipioDTO updateMunicipio(MunicipioDTO municipioDTO){
         Municipio municipio = modelMapper.map(municipioDTO, Municipio.class);
         municipio = municipioRepository.save(municipio);
 
-        return municipioDTO;
+        return modelMapper.map(municipio, MunicipioDTO.class);
     }
 
     public void deleteMunicipio(Integer id){

@@ -1,5 +1,6 @@
 package com.homez.homezbackend.services;
 
+import com.homez.homezbackend.dto.EstadoDTO;
 import com.homez.homezbackend.dto.FotoDTO;
 import com.homez.homezbackend.dto.MunicipioDTO;
 import com.homez.homezbackend.entity.Foto;
@@ -52,14 +53,14 @@ public class FotoService {
         Foto foto = modelMapper.map(fotoDTO, Foto.class);
         foto = fotoRepository.save(foto);
 
-        return fotoDTO;
+        return modelMapper.map(foto, FotoDTO.class);
     }
 
     public FotoDTO updateFoto(FotoDTO fotoDTO){
         Foto foto = modelMapper.map(fotoDTO, Foto.class);
         foto = fotoRepository.save(foto);
 
-        return fotoDTO;
+        return modelMapper.map(foto, FotoDTO.class);
     }
 
     public void deleteFoto(Integer id){

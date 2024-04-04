@@ -1,6 +1,7 @@
 package com.homez.homezbackend.services;
 
 import com.homez.homezbackend.dto.MunicipioDTO;
+import com.homez.homezbackend.dto.SolicitudDTO;
 import com.homez.homezbackend.dto.TipoIngresoDTO;
 import com.homez.homezbackend.entity.Municipio;
 import com.homez.homezbackend.entity.TipoIngreso;
@@ -52,14 +53,14 @@ public class TipoIngresoService {
         TipoIngreso tipoIngreso = modelMapper.map(tipoIngresoDTO, TipoIngreso.class);
         tipoIngreso = tipoIngresoRepository.save(tipoIngreso);
 
-        return tipoIngresoDTO;
+        return modelMapper.map(tipoIngreso, TipoIngresoDTO.class);
     }
 
     public TipoIngresoDTO updateTipoIngreso(TipoIngresoDTO tipoIngresoDTO){
         TipoIngreso tipoIngreso = modelMapper.map(tipoIngresoDTO, TipoIngreso.class);
         tipoIngreso = tipoIngresoRepository.save(tipoIngreso);
 
-        return tipoIngresoDTO;
+        return modelMapper.map(tipoIngreso, TipoIngresoDTO.class);
     }
 
     public void deleteTipoIngreso(Integer id){

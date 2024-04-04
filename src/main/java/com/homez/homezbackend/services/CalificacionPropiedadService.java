@@ -1,5 +1,6 @@
 package com.homez.homezbackend.services;
 
+import com.homez.homezbackend.dto.CalificacionArrendatarioDTO;
 import com.homez.homezbackend.dto.CalificacionPropiedadDTO;
 import com.homez.homezbackend.dto.EstadoDTO;
 import com.homez.homezbackend.entity.CalificacionPropiedad;
@@ -52,14 +53,14 @@ public class CalificacionPropiedadService {
         CalificacionPropiedad calificacionPropiedad = modelMapper.map(calificacionPropiedadDTO, CalificacionPropiedad.class);
         calificacionPropiedad = calificacionPropiedadRepository.save(calificacionPropiedad);
 
-        return calificacionPropiedadDTO;
+        return modelMapper.map(calificacionPropiedad, CalificacionPropiedadDTO.class);
     }
 
     public CalificacionPropiedadDTO updateCalPropiedad(CalificacionPropiedadDTO calificacionPropiedadDTO){
         CalificacionPropiedad calificacionPropiedad = modelMapper.map(calificacionPropiedadDTO, CalificacionPropiedad.class);
         calificacionPropiedad = calificacionPropiedadRepository.save(calificacionPropiedad);
 
-        return calificacionPropiedadDTO;
+        return modelMapper.map(calificacionPropiedad, CalificacionPropiedadDTO.class);
     }
 
     public void deleteCalPropiedad(Integer id){
