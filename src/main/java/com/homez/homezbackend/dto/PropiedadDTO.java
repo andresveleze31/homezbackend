@@ -1,7 +1,10 @@
 package com.homez.homezbackend.dto;
 
+import java.util.List;
+
 import com.homez.homezbackend.entity.Arrendador;
 import com.homez.homezbackend.entity.Departamento;
+import com.homez.homezbackend.entity.Foto;
 import com.homez.homezbackend.entity.Municipio;
 import com.homez.homezbackend.entity.Tipo;
 import com.homez.homezbackend.entity.TipoIngreso;
@@ -50,6 +53,8 @@ public class PropiedadDTO {
 
 
     private Tipo tipo;
+
+    private List<Foto> fotos;
 
 
 }
