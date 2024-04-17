@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.homez.homezbackend.dto.PropiedadDTO;
 import com.homez.homezbackend.services.PropiedadService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/homez/propiedad")
@@ -28,9 +30,15 @@ public class PropiedadController {
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PropiedadDTO get(@PathVariable Integer id){
+    public PropiedadDTO getById(@PathVariable Integer id) {
         return propiedadService.getPropiedad(id);
     }
+
+    @GetMapping(value = "/propietario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PropiedadDTO> getByPropietarioId(@PathVariable Integer id) {
+        return propiedadService.getAllPropiedadesByArrendador(id);
+    }
+    
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PropiedadDTO> get(){

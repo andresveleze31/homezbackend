@@ -46,6 +46,14 @@ public class PropiedadService {
         return propiedadDTOS;
     }
 
+    public List<PropiedadDTO> getAllPropiedadesByArrendador(Integer id) {
+        List<Propiedad> propiedads = (List<Propiedad>) propiedadRepository.findByPropietarioId(id);
+        List<PropiedadDTO> propiedadDTOS = propiedads.stream()
+                .map(propiedad -> modelMapper.map(propiedad, PropiedadDTO.class)).collect(Collectors.toList());
+
+        return propiedadDTOS;
+    }
+
     public PropiedadDTO createPropiedad(PropiedadDTO propiedadDTO) {
         Propiedad propiedad = modelMapper.map(propiedadDTO, Propiedad.class);
         propiedad = propiedadRepository.save(propiedad);
