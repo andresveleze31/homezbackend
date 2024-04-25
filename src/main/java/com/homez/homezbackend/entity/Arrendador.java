@@ -33,8 +33,7 @@ public class Arrendador {
     private String contraseña;
     private Timestamp createdAt;
 
-
-    //Relaciones.
+    // Relaciones.
     @OneToMany(mappedBy = "arrendador")
     @JsonIgnore
     private List<Propiedad> propiedades = new ArrayList<Propiedad>();
