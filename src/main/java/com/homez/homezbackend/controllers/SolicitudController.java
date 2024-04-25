@@ -33,6 +33,11 @@ public class SolicitudController {
         return solicitudService.getSolicitud(id);
     }
 
+    @GetMapping(value = "/propietario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<SolicitudDTO> getByPropietarioId(@PathVariable Integer id) {
+        return solicitudService.getAllSolicitudesByPropietario(id);
+    }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<SolicitudDTO> get(){
         return solicitudService.getAllSolicitudes();

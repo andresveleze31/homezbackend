@@ -45,6 +45,13 @@ public class SolicitudService {
 
         return solicitudDTOS;
     }
+    public List<SolicitudDTO> getAllSolicitudesByPropietario(Integer id){
+        List<Solicitud> solicituds =  (List<Solicitud>) solicitudRepository.findBySolByPropietarioId(id);
+        List<SolicitudDTO> solicitudDTOS = solicituds.stream().map(solicitud -> modelMapper.map(solicitud, SolicitudDTO.class)).collect(Collectors.toList());
+
+        return solicitudDTOS;
+    }
+
 
     public SolicitudDTO createSolicitud(SolicitudDTO solicitudDTO){
         Solicitud solicitud = modelMapper.map(solicitudDTO, Solicitud.class);
