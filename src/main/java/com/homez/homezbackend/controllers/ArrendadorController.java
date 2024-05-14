@@ -25,7 +25,6 @@ public class ArrendadorController {
     @Autowired
     public ArrendadorController( ArrendadorService arrendadorService){
         this.arrendadorService = arrendadorService;
-
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

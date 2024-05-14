@@ -39,6 +39,17 @@ public class ArrendatarioService {
         return  arrendatarioDTO;
     }
 
+    public ArrendatarioDTO getArrendatarioByCorreo(String correo, String contrasena) {
+        Arrendatario arrendatario = arrendatarioRepository.findArrendatarioByCorreo(correo, contrasena);
+        ArrendatarioDTO arrendatarioDTO = null;
+
+        if (arrendatario != null) {
+            arrendatarioDTO = modelMapper.map(arrendatario, ArrendatarioDTO.class);
+        }
+
+        return arrendatarioDTO;
+    }
+
     public List<ArrendatarioDTO> getArrendatarios(){
         List<Arrendatario> arrendatarios =  (List<Arrendatario>) arrendatarioRepository.findAll();
         List<ArrendatarioDTO> arrendatarioDTOS = arrendatarios.stream().map(arrendatario -> modelMapper.map(arrendatario, ArrendatarioDTO.class)).collect(Collectors.toList());

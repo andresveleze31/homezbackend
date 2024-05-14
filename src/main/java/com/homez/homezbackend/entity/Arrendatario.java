@@ -1,7 +1,12 @@
 package com.homez.homezbackend.entity;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,4 +40,6 @@ public class Arrendatario {
     @OneToMany(mappedBy = "arrendatario")
     @JsonIgnore
     private List<Solicitud> solicitudes = new ArrayList<Solicitud>();
+
+   
 }
