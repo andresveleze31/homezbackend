@@ -18,7 +18,7 @@ import com.homez.homezbackend.services.ArrendatarioService;
 
 
 @RestController
-@RequestMapping(value = "/jwt/security/autenticar")
+@RequestMapping(value = "/api/homez/jwt/security/autenticar")
 public class AutenticacionController {
 
     @Autowired

@@ -59,7 +59,7 @@ public class SecurityConfig implements ISecurityConfig {
                                                                 "/api/homez/message/**",
                                                                 "/api/homez/municipio/**",
                                                                 "/api/homez/tipoingreso/**",
-                                                                "/jwt/security/autenticar/**")
+                                                                "/api/homez/jwt/security/autenticar/**")
                                                 .permitAll()
                                                 .anyRequest().authenticated());
 
@@ -70,14 +70,19 @@ public class SecurityConfig implements ISecurityConfig {
                 return new OrRequestMatcher(
                                 // new AntPathRequestMatcher("/indicadoressuim/api/autenticacion"),
                                 // new AntPathRequestMatcher("/indicadoressuim/api/peticion-mes"),
-                                new AntPathRequestMatcher("/jwt/security/autenticar/**", HttpMethod.GET.name()),
-                                new AntPathRequestMatcher("/jwt/security/autenticar/**", HttpMethod.POST.name()),
-                                new AntPathRequestMatcher("/jwt/security/autenticar/**", HttpMethod.PUT.name()),
-                                new AntPathRequestMatcher("/jwt/security/autenticar/**", HttpMethod.DELETE.name()),
-                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.GET.name()),
-                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.POST.name()),
-                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.PUT.name()),
-                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.DELETE.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/autenticar/**",
+                                                HttpMethod.GET.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/autenticar/**",
+                                                HttpMethod.POST.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/autenticar/**",
+                                                HttpMethod.PUT.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/autenticar/**",
+                                                HttpMethod.DELETE.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/usuario/**", HttpMethod.GET.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/usuario/**", HttpMethod.POST.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/usuario/**", HttpMethod.PUT.name()),
+                                new AntPathRequestMatcher("/api/homez/jwt/security/usuario/**",
+                                                HttpMethod.DELETE.name()),
                                 new AntPathRequestMatcher("/chat-socket/**", HttpMethod.GET.name()),
                                 new AntPathRequestMatcher("/chat-socket/**", HttpMethod.POST.name()),
                                 new AntPathRequestMatcher("/chat-socket/**", HttpMethod.PUT.name()),
