@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.homez.homezbackend.dto.ArrendadorDTO;
 import com.homez.homezbackend.dto.ArrendatarioDTO;
 import com.homez.homezbackend.dto.TokenDTO;
 import com.homez.homezbackend.security.JWTTokenService;
+import com.homez.homezbackend.services.ArrendadorService;
 import com.homez.homezbackend.services.ArrendatarioService;
 
 
@@ -25,6 +27,9 @@ public class AutenticacionController {
     @Autowired
     ArrendatarioService arrendatarioService;
 
+    @Autowired
+    ArrendadorService arrendadorService;
+
 
     //Devuelve Token Dado el Arrendatario Completo
     @CrossOrigin
@@ -35,12 +40,22 @@ public class AutenticacionController {
 
     //Devuelve Token Dado Correo y Contraseña
     @CrossOrigin
-    @PostMapping(value = "/autenticar-correo-contrasena", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/arrendatario", produces = MediaType.APPLICATION_JSON_VALUE)
     public String autenticar(@RequestParam String correo, @RequestParam String contrasena) {
         ArrendatarioDTO arrendatarioDTO = arrendatarioService.getArrendatarioByCorreo(correo, contrasena);
         if(arrendatarioDTO != null){
             return jwtTokenService.generarToken(arrendatarioDTO);
         }
-        return "Cuenta de Arrendatario No Encontrada";
+        return "Cuenta No Encontrada";
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/arrendador", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String autenticarArrendador(@RequestParam String correo, @RequestParam String contrasena) {
+        ArrendadorDTO arrendadorDTO = arrendadorService.getArrendadorByCorreo(correo, contrasena);
+        if (arrendadorDTO != null) {
+            return jwtTokenService.generarTokenArrendador(arrendadorDTO);
+        }
+        return "Cuenta No Encontrada";
     }
 }

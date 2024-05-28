@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.homez.homezbackend.dto.ArrendadorDTO;
 import com.homez.homezbackend.dto.ArrendatarioDTO;
 import com.homez.homezbackend.entity.Arrendatario;
 import com.homez.homezbackend.repository.ArrendatarioRepository;
@@ -48,6 +51,15 @@ public class ArrendatarioService {
         }
 
         return arrendatarioDTO;
+    }
+
+    public ArrendatarioDTO autorizacion( Authentication authentication ) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println("-----------------------");
+        System.out.println(  authentication.getName() );
+        ArrendatarioDTO arrendador = objectMapper.readValue(authentication.getName(), ArrendatarioDTO.class);
+        System.out.println("-----------------------"); 
+        return arrendador;
     }
 
     public List<ArrendatarioDTO> getArrendatarios(){

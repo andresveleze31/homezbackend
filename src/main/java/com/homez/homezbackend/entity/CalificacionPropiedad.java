@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +30,8 @@ public class CalificacionPropiedad {
     private Integer calificacion;
     private String comentario;
 
-    @OneToOne(mappedBy = "calificacionPropiedad", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "id_propiedad", referencedColumnName = "id" , nullable = false, unique = false)
     @JsonIgnore
-    private Solicitud solicitud;
+    private Propiedad propiedad;
 }

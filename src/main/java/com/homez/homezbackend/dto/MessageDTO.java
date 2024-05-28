@@ -1,7 +1,5 @@
 package com.homez.homezbackend.dto;
 
-import java.sql.Timestamp;
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,15 +12,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArrendadorDTO {
+public class MessageDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private Integer telefono;
-    private String contraseña;
-    private Timestamp createdAt;
-
+    private Integer id;
+    private String message;
+    private String user;
+    private String room;
 }

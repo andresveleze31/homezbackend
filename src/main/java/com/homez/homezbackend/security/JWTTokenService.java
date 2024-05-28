@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.homez.homezbackend.dto.ArrendadorDTO;
 import com.homez.homezbackend.dto.ArrendatarioDTO;
 
 import io.jsonwebtoken.Claims;
@@ -27,6 +28,37 @@ public class JWTTokenService {
     private Key jwtKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);; // You need to set this key appropriately
 
     public String generarToken(ArrendatarioDTO usuario) {
+
+        // byte[] secretBytes = secret.getBytes();
+        // Key jwtKey = new SecretKeySpec(secretBytes,
+        // SignatureAlgorithm.HS512.getJcaName());
+        ObjectMapper objectMapper = new ObjectMapper();
+        String username = "";
+        try {
+            username = objectMapper.writeValueAsString(usuario);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(username);
+
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + jwtExpiration);
+
+        Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
+
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(now)
+                .setExpiration(expiryDate)
+                .claim("authorities", authorities.stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()))
+                .signWith(jwtKey, SignatureAlgorithm.HS512) // Use your appropriate signing algorithm
+                .compact();
+    }
+
+    public String generarTokenArrendador(ArrendadorDTO usuario) {
 
         // byte[] secretBytes = secret.getBytes();
         // Key jwtKey = new SecretKeySpec(secretBytes,

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.homez.homezbackend.dto.ArrendatarioDTO;
 import com.homez.homezbackend.dto.CalificacionArrendatarioDTO;
+import com.homez.homezbackend.services.ArrendadorService;
+import com.homez.homezbackend.services.ArrendatarioService;
 import com.homez.homezbackend.services.CalificacionArrendatarioService;
 
 @RestController
@@ -21,6 +25,9 @@ import com.homez.homezbackend.services.CalificacionArrendatarioService;
 public class CalifacionArrendatarioController {
 
     CalificacionArrendatarioService calificacionArrendatarioService;
+
+    @Autowired
+    ArrendatarioService arrendatarioService;
 
     @Autowired
     public CalifacionArrendatarioController( CalificacionArrendatarioService calificacionArrendatarioService){
@@ -39,7 +46,11 @@ public class CalifacionArrendatarioController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public CalificacionArrendatarioDTO create(@RequestBody CalificacionArrendatarioDTO calificacionArrendatarioDTO){
+    public CalificacionArrendatarioDTO create(Authentication authentication, @RequestBody CalificacionArrendatarioDTO calificacionArrendatarioDTO) throws Exception{
+        ArrendatarioDTO arrendadorDTO2 = arrendatarioService.autorizacion(authentication);
+        if (arrendadorDTO2 == null || arrendadorDTO2.getId() <= 0) {
+            return null;
+        }
         return calificacionArrendatarioService.createCalArrendatario(calificacionArrendatarioDTO);
     }
 

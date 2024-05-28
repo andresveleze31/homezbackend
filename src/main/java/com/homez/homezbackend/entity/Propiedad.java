@@ -73,6 +73,14 @@ public class Propiedad {
 
     @OneToMany(mappedBy = "propiedad")
     @JsonIgnore
+    private List<CalificacionPropiedad> calpropiedades = new ArrayList<CalificacionPropiedad>();
+
+    @OneToMany(mappedBy = "propiedad")
+    @JsonIgnore
+    private List<CalificacionArrendatario> calarrendatario = new ArrayList<CalificacionArrendatario>();
+
+    @OneToMany(mappedBy = "propiedad")
+    @JsonIgnore
     private List<Solicitud> solicitudes = new ArrayList<Solicitud>();
 
 

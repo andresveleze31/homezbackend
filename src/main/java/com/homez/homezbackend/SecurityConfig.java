@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondit
 
 import com.homez.homezbackend.filter.JWTAuthorizationFilter;
 
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig implements ISecurityConfig {
@@ -46,11 +45,24 @@ public class SecurityConfig implements ISecurityConfig {
 
                 http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                                 .csrf(csrf -> csrf.ignoringRequestMatchers(ignoreSpecificRequests()))
-                                .authorizeHttpRequests(authRequest -> 
-                                        authRequest.requestMatchers("/api/homez/**", "/jwt/security/autenticar/**").permitAll()
-                                        .anyRequest().authenticated()
-                                );
-                                
+                                .authorizeHttpRequests(authRequest -> authRequest
+                                                .requestMatchers("/api/homez/propiedad/**",
+                                                                "/api/homez/departamento/**",
+                                                                "/api/homez/tipo/**",
+                                                                "/api/homez/message/**",
+                                                                "/api/homez/calpropiedad/get",
+                                                                "/chat/**",
+                                                                "/topic/**",
+                                                                "/chat-socket/**",
+                                                                "/app/**",
+                                                                "/api/homez/estado/**",
+                                                                "/api/homez/message/**",
+                                                                "/api/homez/municipio/**",
+                                                                "/api/homez/tipoingreso/**",
+                                                                "/jwt/security/autenticar/**")
+                                                .permitAll()
+                                                .anyRequest().authenticated());
+
                 return http.build();
         }
 
@@ -65,6 +77,14 @@ public class SecurityConfig implements ISecurityConfig {
                                 new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.GET.name()),
                                 new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.POST.name()),
                                 new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.PUT.name()),
-                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.DELETE.name()));
+                                new AntPathRequestMatcher("/jwt/security/usuario/**", HttpMethod.DELETE.name()),
+                                new AntPathRequestMatcher("/chat-socket/**", HttpMethod.GET.name()),
+                                new AntPathRequestMatcher("/chat-socket/**", HttpMethod.POST.name()),
+                                new AntPathRequestMatcher("/chat-socket/**", HttpMethod.PUT.name()),
+                                new AntPathRequestMatcher("/chat-socket/**", HttpMethod.DELETE.name()),
+                                new AntPathRequestMatcher("/api/homez/**", HttpMethod.GET.name()),
+                                new AntPathRequestMatcher("/api/homez/**", HttpMethod.POST.name()),
+                                new AntPathRequestMatcher("/api/homez/**", HttpMethod.PUT.name()),
+                                new AntPathRequestMatcher("/api/homez/**", HttpMethod.DELETE.name()));
         }
 }

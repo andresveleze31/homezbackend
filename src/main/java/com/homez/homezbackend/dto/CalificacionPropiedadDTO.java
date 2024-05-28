@@ -1,4 +1,7 @@
 package com.homez.homezbackend.dto;
+
+import com.homez.homezbackend.entity.Propiedad;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -6,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 
 @Getter
 @Setter
@@ -19,5 +21,7 @@ public class CalificacionPropiedadDTO {
     private Integer id;
     private Integer calificacion;
     private String comentario;
+
+    private Propiedad propiedad;
 
 }
