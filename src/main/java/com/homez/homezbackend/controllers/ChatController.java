@@ -11,8 +11,8 @@ import com.homez.homezbackend.dto.ChatMessageDTO;
 @Controller
 public class ChatController {
 
-    @MessageMapping("/chat/{roomId}")
-    @SendTo("/topic/{roomId}")
+    @MessageMapping("/api/homez/chat/{roomId}")
+    @SendTo("/api/homez/topic/{roomId}")
     public ChatMessageDTO chat(@DestinationVariable String roomId, ChatMessageDTO message){
         System.out.println(message);
         return new ChatMessageDTO(message.getMessage(), message.getUser());

@@ -12,13 +12,13 @@ public class WebSockectConfiguration implements WebSocketMessageBrokerConfigurer
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic");
-        registry.setApplicationDestinationPrefixes("/app");
+        registry.enableSimpleBroker("/api/homez/topic");
+        registry.setApplicationDestinationPrefixes("/api/homez/app");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/chat-socket")
+        registry.addEndpoint("/api/homez/chat-socket")
                 .setAllowedOrigins("https://front-homez.vercel.app")
                 .withSockJS();
     }
